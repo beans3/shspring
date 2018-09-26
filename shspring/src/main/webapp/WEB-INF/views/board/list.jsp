@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+ <!-- Bootstrap CSS -->
+    <link href="bootstrap-3.3.2-dist//css/bootstrap.min.css" rel="stylesheet" />
 <title>Insert title here</title>
 </head>
 <body>

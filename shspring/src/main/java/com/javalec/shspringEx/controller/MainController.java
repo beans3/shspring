@@ -28,7 +28,6 @@ public class MainController {
 	
 	@RequestMapping("/login")
 	public String login(Member member, MemberDao memberDao) {
-		if(memberDao.)
 		
 		
 		return "login";

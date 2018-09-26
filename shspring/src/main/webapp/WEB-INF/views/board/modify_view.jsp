@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="bootstrap-3.3.2-dist//css/bootstrap.min.css" rel="stylesheet" />
 <title>Insert title here</title>
 </head>
 <body>
