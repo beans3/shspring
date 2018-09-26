@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javalec.shspringEx.dao.BoardDao">
+
+	<select id="list" resultType="com.javalec.shspringEx.model.Board">
+		SELECT * FROM BOARD ORDER BY CODE DESC
+	</select>
+	
+	<insert id="write">
+		INSERT INTO BOARD (CODE, ID, REGDATE, TITLE, CONTENT, HIT, BOARDGROUP, COMMENTSTEP, COMMNETINDENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, SYSDATE, #{param2}, #{param3}, 0, BOARD_SEQ.CURRVAL, 0, 0)
+	</insert>
+	
+	<select id="view" resultType="com.javalec.shspringEx.model.Board">
+		select * from board where code = #{param1}
+	</select>
+	
+	<select id="modify_view" resultType="com.javalec.shspringEx.model.Board">
+		select * from board where code = #{param1}
+	</select>
+	
+	<update id="modify">
+		UPDATE BOARD SET ID = #{param1}, TITLE = #{param2}, CONTENT = #{param3} WHERE CODE = #{param4}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM BOARD WHERE CODE = #{param1}
+	</delete>
+</mapper>
