@@ -1,37 +1,42 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/custom.css" rel="stylesheet" />
+
 </head>
 <body>
-	<h1>MEMBER JOIN</h1>
+	<h1 class="text-center">회원가입</h1>
 	
 	<form action="join">
-		<table>
-			<tr>
-				<td>ID</td>
-				<td><input type="text" name="id" /></td>
-			</tr>
-			<tr>
-				<td>PW</td>
-				<td><input type="password" name="password" /></td>
-			</tr>
-			<tr>
-				<td>MAIL</td>
-				<td><input type="text" name="email" /></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="Join" >
-					<input type="reset" value="Cancel" >
-				</td>
-			</tr>
-		</table>
+		<div class="form-group" style="clear: both; width: 60%; margin: auto;"> 
+			<div>
+				<label>ID</label>
+				<input class="form-control" type="text" name="id" />
+			</div>
+			<div>
+				<label>PW</label>
+				<input class="form-control" type="password" name="password" />
+			</div>
+			<div>
+				<label>MAIL</label>
+				<td><input class="form-control" type="text" name="email" /></td>
+			</div>
+			<div>
+				<div class="form-group">
+					<input class="btn btn-default" type="submit" value="Join" >
+					<input class="btn btn-default" type="reset" value="Cancel" >
+					<a class="btn btn-default" href="/">MAIN</a>
+				</div>
+			</div>
+		</div>
 	</form>
-	<a href="/">MAIN</a>
+	
 </body>
 </html>
