@@ -14,7 +14,6 @@
 <body>
 	<h1 class="text-center"> 회원가입 완료 </h1>
 	<div class="form-group" style="clear: both; width: 60%; margin: auto;">
-		<br /><br />
 		<p align="center">
 		 	${member.id}님 환영합니다. <br />
 			회원님의 아이디는 <mark>${member.id}</mark>,<br />

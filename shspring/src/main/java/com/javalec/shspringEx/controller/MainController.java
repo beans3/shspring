@@ -29,8 +29,16 @@ public class MainController {
 	@RequestMapping("/login")
 	public String login(Member member, MemberDao memberDao) {
 		
+		if()
+		{
+			
+		}
+		else if()
+		{
+			return "joinForm";
+		}
 		
-		return "login";
+		return "main";
 	}
 	
 	@RequestMapping("/logout")

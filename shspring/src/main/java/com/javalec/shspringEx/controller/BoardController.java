@@ -1,18 +1,22 @@
 package com.javalec.shspringEx.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.javalec.shspringEx.dao.BoardDao;
 import com.javalec.shspringEx.model.Board;
+import com.javalec.shspringEx.service.BoardService;
 
 
+/**
+ * Handles requests for the application home page.
+ */
 /**
  * Handles requests for the application home page.
  */
@@ -21,14 +25,14 @@ import com.javalec.shspringEx.model.Board;
 public class BoardController {
 
 	@Autowired
-	SqlSession sqlSession;
+	BoardService service;
 	
 	//게시판 목록
 	@RequestMapping({"/", "list"})
 	public String list(Model model) {
 		
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		model.addAttribute("list", dao.list());
+		List<Board> boardList = service.boaradList();
+		model.addAttribute("list", boardList);
 
 		return "board/list";
 	}
@@ -41,62 +45,69 @@ public class BoardController {
 	
 	//글쓰기
 	@RequestMapping("/write")
-	public String write(HttpServletRequest request, Model model) {
-		
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		dao.write(request.getParameter("id"), request.getParameter("title"), request.getParameter("content"));
+	public String write(@ModelAttribute("board") Board board) {
+	
+		service.boardInsert(board);
 
 		return "redirect:list";
 	}
 	
 	//글 보기 페이지
 	@RequestMapping("/view")
-	public String view(@RequestParam("code") int code, Model model) {
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		model.addAttribute("view", dao.view(code));
+	public String view(@ModelAttribute("board") Board board, HttpServletRequest request, Model model) {
+		
+		int code = Integer.parseInt(request.getParameter("code"));
+        board.setCode(code);
+        
+        Board resultBoard = service.boardView(board);
+        
+        model.addAttribute("view", resultBoard);
 		
 		return "board/view";
 	}
 	
 	//수정 페이지
 	@RequestMapping("modify_view")
-	public String modify_view(@RequestParam("code") int code, Model model) {
+	public String modify_view(@ModelAttribute("board") Board board, HttpServletRequest request, Model model) {
 		
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		model.addAttribute("modify", dao.modify_view(code));		
+		int code = Integer.parseInt(request.getParameter("code"));
+		board.setCode(code);
+		
+		Board resultBoard = service.modifyView(board);
+		model.addAttribute("modify", resultBoard);
 		
 		return "board/modify_view";
 	}
 	
 	//수정
 	@RequestMapping("/modify")
-	public String modify(@RequestParam("id") String id, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("code") int code) {
+	public String modify(Board board) {
 		
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		dao.modify(id, title, content, code);
+		service.boardUpdate(board);
 		
 		return "redirect:list";
 	}
 	
 	//글 삭제
 	@RequestMapping("/delete")
-	public String delete(@RequestParam("code") int code) {
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		dao.delete(code);
+	public String delete(@ModelAttribute("board") Board board) {
+		
+		service.boardDelete(board);
 		
 		return "redirect:list";
 	}
-	
-	//답변 페이지
-	@RequestMapping("reply_form")
-	public String reply_form() {
-		
-		return "/reply";
-	}
-	
-	@RequestMapping("reply")
-	public String reply(Board board) {
-		return "/view";
-	}
+//	
+//	//답변 페이지
+//	@RequestMapping("reply_form")
+//	public String reply_form() {
+//		
+//		return "/reply";
+//	}
+//	
+//	@RequestMapping("reply")
+//	public String reply(Board board) {
+//		return "/view";
+//	}
 	
 }
+

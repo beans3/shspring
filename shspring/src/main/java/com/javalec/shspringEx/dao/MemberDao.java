@@ -8,7 +8,7 @@ public interface MemberDao {
 	
 	public void memberInsert(Member member);
 	public ArrayList<Member> memberSelect(String id);
-	public Member memberUpdate(String id);
+	public Member memberUpdate(Member member);
 	public void memberDelete(String id);
 
 }

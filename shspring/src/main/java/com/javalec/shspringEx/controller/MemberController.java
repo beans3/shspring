@@ -53,10 +53,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/modify")
-	public String memModify(@RequestParam("id") String id, Model model) {
+	public String memModify(Member member, Model model) {
 		
 		MemberDao dao = sqlsession.getMapper(MemberDao.class);
-		dao.memberUpdate(id);
+		dao.memberUpdate(member);
 		
 		return "/modifyOk";
 	}

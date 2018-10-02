@@ -10,22 +10,22 @@
 	</select>
 	
 	<insert id="write">
-		INSERT INTO BOARD (CODE, ID, REGDATE, TITLE, CONTENT, HIT, BOARDGROUP, COMMENTSTEP, COMMNETINDENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, SYSDATE, #{param2}, #{param3}, 0, BOARD_SEQ.CURRVAL, 0, 0)
+		INSERT INTO BOARD (CODE, ID, REGDATE, TITLE, CONTENT, HIT, BOARDGROUP, COMMENTSTEP, COMMNETINDENT) VALUES (BOARD_SEQ.NEXTVAL, #{id}, SYSDATE, #{title}, #{content}, 0, BOARD_SEQ.CURRVAL, 0, 0)
 	</insert>
 	
 	<select id="view" resultType="com.javalec.shspringEx.model.Board">
-		select * from board where code = #{param1}
+		select * from board where code = #{code}
 	</select>
 	
 	<select id="modify_view" resultType="com.javalec.shspringEx.model.Board">
-		select * from board where code = #{param1}
+		select * from board where code = #{code}
 	</select>
 	
-	<update id="modify">
-		UPDATE BOARD SET ID = #{param1}, TITLE = #{param2}, CONTENT = #{param3} WHERE CODE = #{param4}
+	<update id="update">
+		UPDATE BOARD SET ID = #{id}, TITLE = #{title}, CONTENT = #{content} WHERE CODE = #{code}
 	</update>
 	
 	<delete id="delete">
-		DELETE FROM BOARD WHERE CODE = #{param1}
+		DELETE FROM BOARD WHERE CODE = #{code}
 	</delete>
 </mapper>
