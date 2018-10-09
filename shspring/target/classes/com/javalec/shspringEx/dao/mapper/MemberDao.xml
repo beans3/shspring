@@ -7,4 +7,16 @@
 	<insert id="memberInsert">	
 		INSERT INTO MEMBER (id, password, email) VALUES (#{id}, #{password}, #{email})
 	</insert>
+	
+	<select id="memberSelect" resultType="com.javalec.shspringEx.model.Member">
+		SELECT * FROM MEMBER WHERE ID = #{id}
+	</select>
+	
+	<update id="memberUpdate">
+		UPDATE MEMBER SET PASSWORD = #{password}, EMAIL = #{email} WHERE ID = #{id}
+	</update>
+	
+	<delete id="memberDelete">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
 </mapper>

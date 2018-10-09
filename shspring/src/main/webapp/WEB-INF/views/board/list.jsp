@@ -22,6 +22,7 @@
 <h1 class="text-center"> 게시판 </h1>
 
 <div style="clear: both; width: 70%; margin: auto;">
+	<a class="btn btn-default" href="modifyForm">회원정보수정</a></button>
 	<table class="table">
 		<tr>
 			<td>코드</td>

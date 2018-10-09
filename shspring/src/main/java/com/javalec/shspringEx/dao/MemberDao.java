@@ -7,8 +7,9 @@ import com.javalec.shspringEx.model.Member;
 public interface MemberDao {
 	
 	public void memberInsert(Member member);
-	public ArrayList<Member> memberSelect(String id);
-	public Member memberUpdate(Member member);
-	public void memberDelete(String id);
+	public ArrayList<Member> memberSelect(Member member);
+	public Member onememberSelect(Member member);
+	public void memberUpdate(Member member);
+	public void memberDelete(Member member);
 
 }

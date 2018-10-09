@@ -30,8 +30,8 @@
 			</div>
 			<div>
 				<div class="form-group">
-					<input class="btn btn-default" type="submit" value="Join" >
-					<input class="btn btn-default" type="reset" value="Cancel" >
+					<input class="btn btn-default" type="submit" value="회원가입" >
+					<input class="btn btn-default" type="reset" value="리셋" >
 					<a class="btn btn-default" href="${pageContext.request.contextPath}/board/list">MAIN</a>
 				</div>
 			</div>

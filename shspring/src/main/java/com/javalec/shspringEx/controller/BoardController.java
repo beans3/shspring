@@ -79,7 +79,7 @@ public class BoardController {
 		return "board/modify_view";
 	}
 	
-	//수정
+	//글 수정
 	@RequestMapping("/modify")
 	public String modify(Board board) {
 		
