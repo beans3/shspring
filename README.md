@@ -5,9 +5,14 @@ spring framework를 이용한 게시판
 - eclipse
 - jdk 9.0.4
 - spring 3.9.5
-- rdbms oracle 11g
+- Apache Tomcat 9.0.6
+- oracle 11.2.0
 - mybatis 3.2.8
 
-개발 언어 - JAVA
+개발 언어
+- JAVA
 
-기능 - 회원 가입, 로그인, 글 작성, 수정, 삭제
+기능
+- 회원 가입
+- 로그인
+- 글 작성, 수정, 삭제
