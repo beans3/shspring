@@ -10,7 +10,7 @@ spring framework를 이용한 게시판
 - mybatis 3.2.8
 
 개발 언어
-- JAVA
+- JAVA, JSP
 
 기능
 - 회원 가입
