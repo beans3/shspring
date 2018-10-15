@@ -2,7 +2,7 @@
 spring framework를 이용한 게시판
 
 개발 환경
-- eclipse
+- eclipse 4.7.0 (Oxygen)
 - jdk 9.0.4
 - spring 3.9.5
 - apache tomcat 9.0.6
