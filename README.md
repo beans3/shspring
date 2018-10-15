@@ -5,7 +5,7 @@ spring framework를 이용한 게시판
 - eclipse
 - jdk 9.0.4
 - spring 3.9.5
-- Apache Tomcat 9.0.6
+- apache tomcat 9.0.6
 - oracle 11.2.0
 - mybatis 3.2.8
 
